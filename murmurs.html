@@ -76,13 +76,14 @@ You slip the photo into your jumpsuit, taking care not to crease or fold it. [[C
 [[Back to previous|stare out the window]] or [[Continue.|Leave room]]</tw-passagedata><tw-passagedata pid="11" name="warehouse" tags="" position="418,1065">The motion-activated lights guide you down the hallway and into the warehouse. Crates of varying sizes and shapes are stacked floor to ceiling and extend into darkness on either side. Small green lights wink on their corners, signalling an airtight seal.
 
 You approach the console in front of you. [[Continue|console]].
+(if: $nomPro is 0)[(set: $nomPro to &quot;they&quot;)(set:$accPro to &quot;them&quot;)]
 {(set: $nomPro to (lowercase: $nomPro))}</tw-passagedata><tw-passagedata pid="12" name="pronoun" tags="" position="148,807">You miss (print: $accPro), even as you chide yourself for it.
 
 {(if: $nomPro is &quot;they&quot;)[They&#x27;re](else-if: $nomPro is &quot;he&quot; or $nomPro is &quot;she&quot;)[(upperfirst: $nomPro)&#x27;s](else:)[&lt;input type=&quot;text&quot; name=&quot;nomPro&quot; value=&quot;Type pronoun here&quot;&gt;&lt;button type=&quot;submit&quot; onclick=&quot;CustomScripts.updateVariable(&#x27;nomPro&#x27;)&quot;&gt;(link: &quot;Save&quot;)[(set: $possPro to $nomPro + &quot;&#x27;s&quot;)(go-to: &quot;Leave room&quot;)]&lt;/button&gt; is] safe somewhere lightyears away with all the other refugees. Admit it: you thought the distance would be enough to make you forget. So far, it isn’t working.}
 
 [[Continue|Leave room]].</tw-passagedata><tw-passagedata pid="13" name="console" tags="" position="418,1215">This is your job: every day, you sort and select [[items to be packed]] on a shuttle and shipped into outer space towards an [[undisclosed location]]. It&#x27;s dull work but it [[pays very well]]—if you&#x27;re not too old by [[the time you&#x27;re done]] to enjoy it.
 
-You [[tap the console]] with a finger.</tw-passagedata><tw-passagedata pid="14" name="items to be packed" tags="" position="58,1359">Your job was not without controversy. Some argued that any and all extra fuel should be used for [[passenger ships|leave almost all]], to save those who couldn&#x27;t pay or those [[who refused to leave]]. Some argued that saving humanity was pointless without the cultural artifacts that made us human. And some argued that, without the lessons of history, humanity would simply repeat the same actions elsewhere that had doomed us in the first place.
+You [[tap the console]] with a finger.</tw-passagedata><tw-passagedata pid="14" name="items to be packed" tags="" position="58,1361">Your job was not without controversy. Some argued that any and all extra fuel should be used for [[passenger ships|leave almost all]], to save those who couldn&#x27;t pay or those [[who refused to leave]]. Some argued that saving humanity was pointless without the cultural artifacts that made us human. And some argued that, without the lessons of history, humanity would simply repeat the same actions elsewhere that had doomed us in the first place.
 
 The official line was that, although the fuel and materials for shuttles were abundant enough, the available resources for life-sustaining systems on said vehicles were not. You don&#x27;t know if that&#x27;s actually true.
 
@@ -129,19 +130,19 @@ You pause. This was when the reports were still muddled. It wasn&#x27;t clear ye
 
 [[Even if the earth is doomed, you need to do your part.]]</tw-passagedata><tw-passagedata pid="24" name="It&#x27;s not clear whether staying or leaving is the best choice." tags="" position="73,1941">It&#x27;s not clear whether staying or leaving is the best choice. Better to wait until you know more. Humanity learned a lot about space travel after the first human landings on Mars, but longer flights are still fraught with risk and uncertainty. At least here on earth, you know a lot more what you&#x27;re up against. Who could say the same if you left?
 
-[[Continue.|memory]]</tw-passagedata><tw-passagedata pid="25" name="Even if the earth is doomed, you need to do your part." tags="" position="211,1935">Even if the earth is doomed, you need to do your part.
+[[Continue|memory]].</tw-passagedata><tw-passagedata pid="25" name="Even if the earth is doomed, you need to do your part." tags="" position="211,1935">Even if the earth is doomed, you need to do your part.
 
 (if: $nomPro is &quot;they&quot;)[They were](else:)[(print: (upperfirst: $nomPro)) was] always looking to the future while you were always concerned with the past. 
 
 That&#x27;s why they put (print: $accPro) on one of the priority shuttles. If anyone knew how to settle other planets, it was (print: $accPro).
 
-[[Continue|memory]]</tw-passagedata><tw-passagedata pid="26" name="memory" tags="" position="157,2057">(if: $nomPro is &quot;they&quot;)[They plead and cajole, turn every emotional screw on you that they&#x27;ve](else:)[(print: (upperfirst: $nomPro))][ pleads and cajoles, turns every emotional screw on you that (print: $nomPro)&#x27;s] ever learned. But you remain adamant.
+[[Continue|memory]].</tw-passagedata><tw-passagedata pid="26" name="memory" tags="" position="157,2057">(if: $nomPro is &quot;they&quot;)[They plead and cajole, turn every emotional screw on you that they&#x27;ve](else:)[(print: (upperfirst: $nomPro))][ pleads and cajoles, turns every emotional screw on you that (print: $nomPro)&#x27;s] ever learned. But you remain adamant.
 
 (if: $nomPro is &quot;they&quot;)[They pause](else:)[(upperfirst:$nomPro) pauses]. &quot;If you come with me, maybe we could start over.&quot;
 
 You almost believe (print: $accPro). But you look (print: $accPro) in the eye and see the truth.
 
-[[Continue.|enough]]</tw-passagedata><tw-passagedata pid="27" name="enough" tags="" position="271,2167">VIC senses your inaction and chirps at you. The tone was intended to be polite and cheerful, but it just sounds passive-aggressive.
+[[Continue|enough]].</tw-passagedata><tw-passagedata pid="27" name="enough" tags="" position="271,2167">VIC senses your inaction and chirps at you. The tone was intended to be polite and cheerful, but it just sounds passive-aggressive.
 
 That&#x27;s enough reminiscing for now. There&#x27;ll be plenty of time for that when you&#x27;re not [[on the clock|console]].</tw-passagedata><tw-passagedata pid="28" name="VIC prepared" tags="" position="443,1527">VIC is authorized to sort and present the items according to your specifications, but not to make any final decisions.
 
@@ -204,9 +205,10 @@ The screen flashes: there&#x27;s a sliver of empty space left. It asks for confi
 
 You confirm the current trajectory and launch settings.
 
-[[Continue|blast off]].</tw-passagedata><tw-passagedata pid="37" name="blast off" tags="" position="631,2249">(if: $has_terr is true)[You picked the terraforming technology. It represents humanity&#x27;s best chance to survive and rebuild, although who really knows if that will be enough.
+[[Continue|blast off]].</tw-passagedata><tw-passagedata pid="37" name="blast off" tags="" position="631,2249">(if: $has_blueprints is true)[You picked the terraforming technology. It represents humanity&#x27;s best chance to survive and rebuild, although who really knows if that will be enough.
 ]
-(if: $has_seeds is true)[You picked the seed bank. You wonder which, if any, of the species might provide a viable food source or if its destination even has the resources to preserve them. And you wonder how many other species have been lost on other planets.]
+(if: $has_seeds is true)[You picked the seed bank. You wonder which, if any, of the species might provide a viable food source or if its destination even has the resources to preserve them. And you wonder how many other species have been lost on other planets.
+]
 (if: $has_drive is true)[You picked the hard drive full of languages. In the end it was beauty, not practicality, that persuaded you. But it is exactly this beauty, diversity, and community that is just as essential for survival.
 ]
 (if: $has_sculpt is true)[You picked the sculpture. Who&#x27;s to say such societies were primitive? It could serve as a reminder of humility for a civilization so obsessed with progress, that reached too far and too fast to sustain itself. 
